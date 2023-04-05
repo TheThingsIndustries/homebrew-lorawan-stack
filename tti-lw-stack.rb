@@ -5,12 +5,12 @@
 class TtiLwStack < Formula
   desc "The Things Stack Enterprise for LoRaWAN"
   homepage "https://www.thethingsindustries.com"
-  version "3.24.2"
+  version "3.25.0"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.24.2/lorawan-stack_3.24.2_darwin_amd64.tar.gz"
-      sha256 "fd89c7afbecd1c47d05dc4a1ef4171bd307af43de0dffb568f8c34a828ca0cbe"
+    if Hardware::CPU.arm?
+      url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.25.0/lorawan-stack_3.25.0_darwin_arm64.tar.gz"
+      sha256 "e564f5b199ea3d2c119b17dc35a469a38d307eb5b64e3bf574926fd1f16b2fe3"
 
       def install
         bin.install "tti-lw-cli"
@@ -27,9 +27,9 @@ class TtiLwStack < Formula
         fish_completion.install "config/completion/fish/tti-lw-stack.fish"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.24.2/lorawan-stack_3.24.2_darwin_arm64.tar.gz"
-      sha256 "0b998bbf5b6d2e00f2072b2d5ce8e2a916c1215a45d866197da1db79064f1d17"
+    if Hardware::CPU.intel?
+      url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.25.0/lorawan-stack_3.25.0_darwin_amd64.tar.gz"
+      sha256 "9ce651041f6fbaefe9a566c12fc9f0a9720e67f3b461e364e8cfe89d57e0c677"
 
       def install
         bin.install "tti-lw-cli"
@@ -49,9 +49,28 @@ class TtiLwStack < Formula
   end
 
   on_linux do
+    if Hardware::CPU.intel?
+      url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.25.0/lorawan-stack_3.25.0_linux_amd64.tar.gz"
+      sha256 "c60a3f731257fa00e7ca0342372bab16b006d8f2b1b025855041fdd0a4fd01f5"
+
+      def install
+        bin.install "tti-lw-cli"
+        libexec.install %w[tti-lw-stack public]
+        env = {
+            :TTN_LW_HTTP_STATIC_SEARCH_PATH => libexec/"public"
+        }
+        (bin/"tti-lw-stack").write_env_script libexec/"tti-lw-stack", env
+        bash_completion.install "config/completion/bash/tti-lw-cli"
+        zsh_completion.install "config/completion/zsh/_tti-lw-cli"
+        fish_completion.install "config/completion/fish/tti-lw-cli.fish"
+        bash_completion.install "config/completion/bash/tti-lw-stack"
+        zsh_completion.install "config/completion/zsh/_tti-lw-stack"
+        fish_completion.install "config/completion/fish/tti-lw-stack.fish"
+      end
+    end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.24.2/lorawan-stack_3.24.2_linux_armv6.tar.gz"
-      sha256 "239588f9ce7dca24098286cae698a26cef985c66cf2d01d0aad38f57c68d5704"
+      url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.25.0/lorawan-stack_3.25.0_linux_armv6.tar.gz"
+      sha256 "9aaee1c2aff630f580d59930af06cdbbcc8d3829d1c9693a52b2da8a848cfbf4"
 
       def install
         bin.install "tti-lw-cli"
@@ -69,27 +88,8 @@ class TtiLwStack < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.24.2/lorawan-stack_3.24.2_linux_arm64.tar.gz"
-      sha256 "eed0126884f17c2bcb89b464db5251945292dbc16397748314f4a3124e163ab3"
-
-      def install
-        bin.install "tti-lw-cli"
-        libexec.install %w[tti-lw-stack public]
-        env = {
-            :TTN_LW_HTTP_STATIC_SEARCH_PATH => libexec/"public"
-        }
-        (bin/"tti-lw-stack").write_env_script libexec/"tti-lw-stack", env
-        bash_completion.install "config/completion/bash/tti-lw-cli"
-        zsh_completion.install "config/completion/zsh/_tti-lw-cli"
-        fish_completion.install "config/completion/fish/tti-lw-cli.fish"
-        bash_completion.install "config/completion/bash/tti-lw-stack"
-        zsh_completion.install "config/completion/zsh/_tti-lw-stack"
-        fish_completion.install "config/completion/fish/tti-lw-stack.fish"
-      end
-    end
-    if Hardware::CPU.intel?
-      url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.24.2/lorawan-stack_3.24.2_linux_amd64.tar.gz"
-      sha256 "3e52fe97ee753b44cc790a10079ede79bc88359a260570a10aad00face9d025f"
+      url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.25.0/lorawan-stack_3.25.0_linux_arm64.tar.gz"
+      sha256 "63fbb0eb6ba88334bded9f04282565b3d460db1fccc21b46654eef4bbc2bdcc1"
 
       def install
         bin.install "tti-lw-cli"
