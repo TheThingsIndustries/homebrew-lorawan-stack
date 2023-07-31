@@ -10,7 +10,7 @@ class TtiLwStack < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.27.0/lorawan-stack_3.27.0_darwin_amd64.tar.gz"
-      sha256 "6863914075c856ecccd092bada8bc51c22952adb6e03105dd55eaa9550b5a6a1"
+      sha256 "d87047a519adce061b137008225f4bc839677c20d54727b491bfecd6a2a5244e"
 
       def install
         bin.install "tti-lw-cli"
@@ -29,7 +29,7 @@ class TtiLwStack < Formula
     end
     if Hardware::CPU.arm?
       url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.27.0/lorawan-stack_3.27.0_darwin_arm64.tar.gz"
-      sha256 "5d812e18d4ffb958261a697e79b66db7dba027cb93e5ec69e60725450eb25fa8"
+      sha256 "c37a923227cfa9e0abd36b70ec95e2037ebbe40e8c07e3bc410eadfd34b5f450"
 
       def install
         bin.install "tti-lw-cli"
@@ -51,7 +51,7 @@ class TtiLwStack < Formula
   on_linux do
     if Hardware::CPU.intel?
       url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.27.0/lorawan-stack_3.27.0_linux_amd64.tar.gz"
-      sha256 "b5279072fe9d3d048acced23eee5cfaca2faf8d455abfe5564cb0689da805731"
+      sha256 "d0f73ce60fe2e294be6f59122b74614b2aba7146053feb2962173f3ad45fe7f4"
 
       def install
         bin.install "tti-lw-cli"
@@ -70,7 +70,7 @@ class TtiLwStack < Formula
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
       url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.27.0/lorawan-stack_3.27.0_linux_armv6.tar.gz"
-      sha256 "49c8b24c3508a0850e89f4987f9ce6d7ba70eac5656191eeedad0598b014e428"
+      sha256 "fecfe570c0cdc37591469f4cb47223df1320a819b956cf80f9b10aea47bb94ec"
 
       def install
         bin.install "tti-lw-cli"
@@ -89,7 +89,7 @@ class TtiLwStack < Formula
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.27.0/lorawan-stack_3.27.0_linux_arm64.tar.gz"
-      sha256 "3451b55311e0cbd4bc35b59938c1641bc542e0b39c24b38d4bae4e1cccefd253"
+      sha256 "b8780dd169d51bd2590695822fa022c94e4c775163a545f298abcdad0742b801"
 
       def install
         bin.install "tti-lw-cli"
