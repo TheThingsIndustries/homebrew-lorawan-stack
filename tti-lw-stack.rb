@@ -10,7 +10,7 @@ class TtiLwStack < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.36.0/lorawan-stack_3.36.0_darwin_amd64.tar.gz"
-      sha256 "f32795f8780d82f67553acfb5f5a9f91b05d278f4ac8fd1bc62c15b938e95a36"
+      sha256 "0f6425a56dc3bc5a6482c217bf43ba2cca1b8b14765afa679d498ebe65bc98bc"
 
       define_method(:install) do
         bin.install "tti-lw-cli"
@@ -29,7 +29,7 @@ class TtiLwStack < Formula
     end
     if Hardware::CPU.arm?
       url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.36.0/lorawan-stack_3.36.0_darwin_arm64.tar.gz"
-      sha256 "5a5e2a189a69c23b8e24827d1309788c7daa368b794a54381532abf4478fae60"
+      sha256 "d5cca5fc48f5c893c50592c5c025cfd538eb8e2f70ef95e7f83271e495998996"
 
       define_method(:install) do
         bin.install "tti-lw-cli"
@@ -51,7 +51,7 @@ class TtiLwStack < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.36.0/lorawan-stack_3.36.0_linux_amd64.tar.gz"
-      sha256 "c4aa1de71f5a08bdea93bffcca90cec30828ebc94d810b8b442d0cf3c68f7e1e"
+      sha256 "45819d6ac8daafba776b1de4fd0e1ddd08202cb8b060861ac0cca66bf8680ace"
       define_method(:install) do
         bin.install "tti-lw-cli"
         libexec.install %w[tti-lw-stack public]
@@ -69,7 +69,7 @@ class TtiLwStack < Formula
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
       url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.36.0/lorawan-stack_3.36.0_linux_armv6.tar.gz"
-      sha256 "48568d4f480fea87a52d91e8df704698a1e099276256a29cca0e1791a3ddf527"
+      sha256 "c09ae0e55f95151d9b0aa9fae4abb2839f77ec0b9f9bdf6858a2ee8c81d66a5c"
       define_method(:install) do
         bin.install "tti-lw-cli"
         libexec.install %w[tti-lw-stack public]
@@ -87,7 +87,7 @@ class TtiLwStack < Formula
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://the-things-enterprise-stack-releases.s3-eu-west-1.amazonaws.com/3.36.0/lorawan-stack_3.36.0_linux_arm64.tar.gz"
-      sha256 "80ed31b471a09be1e6871e2c5a32b1b7413f530986fca1ea8a747cd1b4feadab"
+      sha256 "51ae6fa869d87b926c936864996a815fcd6f411ef61fc611272bed6b65b0a1f7"
       define_method(:install) do
         bin.install "tti-lw-cli"
         libexec.install %w[tti-lw-stack public]
